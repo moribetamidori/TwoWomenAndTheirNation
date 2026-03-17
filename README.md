@@ -1,36 +1,12 @@
-# Two Women and Their Nation
+# 两个女人和她们的国 （Two Women and Their Nation）
 
-This repository is organized as a reader-friendly story hub instead of a raw manuscript dump.
+## ——没有权力，就没有权利，也没有一切。这是本文的总纲领！
 
-## Home
-
-Welcome to *Two Women and Their Nation*.
-
-Use the links below as the main navigation.
+by 冯晨夏
 
 ## The Story
 
-- [Start Here: Manuscript Index](./manuscript/index.md)
-- [Front Matter](./manuscript/chapters/00-front-matter.md)
-- [Chapter One](./manuscript/chapters/01-chapter-one.md)
+- [点击这里开始看](./manuscript/index.md)
+- [00-写在前面的话](./manuscript/chapters/00-写在前面的话.md)
+- [01-高考(一)2016](./manuscript/chapters/01-高考(一)2016.md)
 
-## The World
-
-- [Characters](./notes/characters.md)
-- [Worldbuilding](./notes/worldbuilding.md)
-- [Timeline](./notes/timeline.md)
-
-## Project Notes
-
-- [Style Guide](./meta/style-guide.md)
-- [Publishing Plan](./meta/publishing-plan.md)
-
-## Folder Guides
-
-- [Manuscript Folder Guide](./manuscript/README.md)
-- [Notes Folder Guide](./notes/README.md)
-- [Meta Folder Guide](./meta/README.md)
-
-## About GitHub Wiki
-
-GitHub Wiki is a separate feature from the main repository view. A normal repository will still show folders and files unless you create landing pages like this one, add folder-level `README.md` files, or enable the separate GitHub Wiki tab on GitHub itself.
