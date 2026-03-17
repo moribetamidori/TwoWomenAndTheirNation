@@ -1,39 +1,36 @@
 # Two Women and Their Nation
 
-A GitHub-friendly manuscript layout for a novel project.
+This repository is organized as a reader-friendly story hub instead of a raw manuscript dump.
 
-## Structure
+## Home
 
-- `manuscript/` holds the actual book text
-- `notes/` holds worldbuilding, research, and planning
-- `meta/` holds publishing and project conventions
+Welcome to *Two Women and Their Nation*.
 
-## Suggested Workflow
+Use the links below as the main navigation.
 
-1. Put each chapter in its own Markdown file inside `manuscript/chapters/`
-2. Keep filenames ordered with leading zeros, such as `01-prologue.md`
-3. Use `manuscript/index.md` as the table of contents
-4. Keep spoilers, cut scenes, and planning material out of chapter files
+## The Story
 
-## Current Layout
+- [Start Here: Manuscript Index](./manuscript/index.md)
+- [Front Matter](./manuscript/chapters/00-front-matter.md)
+- [Chapter One](./manuscript/chapters/01-chapter-one.md)
 
-```text
-.
-├── README.md
-├── manuscript
-│   ├── index.md
-│   └── chapters
-│       ├── 00-front-matter.md
-│       └── 01-chapter-one.md
-├── notes
-│   ├── characters.md
-│   ├── timeline.md
-│   └── worldbuilding.md
-└── meta
-    ├── publishing-plan.md
-    └── style-guide.md
-```
+## The World
 
-## Notes
+- [Characters](./notes/characters.md)
+- [Worldbuilding](./notes/worldbuilding.md)
+- [Timeline](./notes/timeline.md)
 
-If you already have draft chapters elsewhere, move them into `manuscript/chapters/` and keep the numeric prefix so GitHub displays them in reading order.
+## Project Notes
+
+- [Style Guide](./meta/style-guide.md)
+- [Publishing Plan](./meta/publishing-plan.md)
+
+## Folder Guides
+
+- [Manuscript Folder Guide](./manuscript/README.md)
+- [Notes Folder Guide](./notes/README.md)
+- [Meta Folder Guide](./meta/README.md)
+
+## About GitHub Wiki
+
+GitHub Wiki is a separate feature from the main repository view. A normal repository will still show folders and files unless you create landing pages like this one, add folder-level `README.md` files, or enable the separate GitHub Wiki tab on GitHub itself.
