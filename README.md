@@ -5,8 +5,6 @@
 by 冯晨夏
 
 ## The Story
-
-- [点击这里开始看](./manuscript/index.md)
 - [00-写在前面的话](./manuscript/chapters/00-写在前面的话.md)
 - [01-高考(一)2016](./manuscript/chapters/01-高考(一)2016.md)
 
