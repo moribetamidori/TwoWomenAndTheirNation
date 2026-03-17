@@ -25,4 +25,7 @@ by 冯晨夏
 - [16-寒假2017](./manuscript/chapters/16-寒假2017.md)
 - [17-开学2017](./manuscript/chapters/17-开学2017.md)
 - [18-咱们的节日2017](./manuscript/chapters/18-咱们的节日2017.md)
+- [19-书呆子2017](./manuscript/chapters/19-书呆子2017.md)
+- [20-“人气王”冯晨夏2017](./manuscript/chapters/20-“人气王”冯晨夏2017.md)
+- [21-黑暗森林2017](./manuscript/chapters/21-黑暗森林2017.md)
 <!-- chapter-links:end -->
