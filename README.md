@@ -78,4 +78,13 @@ by 冯晨夏
 - [69-第二十五章2023](./manuscript/chapters/69-第二十五章2023.md)
 - [70-第二十六章2023](./manuscript/chapters/70-第二十六章2023.md)
 - [71-第二十七章2023](./manuscript/chapters/71-第二十七章2023.md)
+- [72-第二十八章2023](./manuscript/chapters/72-第二十八章2023.md)
+- [73-第二十九章2024](./manuscript/chapters/73-第二十九章2024.md)
+- [74-第三十章2024](./manuscript/chapters/74-第三十章2024.md)
+- [75-第三十一章2025](./manuscript/chapters/75-第三十一章2025.md)
+- [76-三十二章2025](./manuscript/chapters/76-三十二章2025.md)
+- [77-第三十三章2025](./manuscript/chapters/77-第三十三章2025.md)
+- [78-第三十四章2026](./manuscript/chapters/78-第三十四章2026.md)
+- [79-第三十五章2027](./manuscript/chapters/79-第三十五章2027.md)
+- [80-第三十六章2026](./manuscript/chapters/80-第三十六章2026.md)
 <!-- chapter-links:end -->
