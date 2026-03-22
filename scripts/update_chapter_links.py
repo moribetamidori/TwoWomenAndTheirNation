@@ -62,11 +62,11 @@ def replace_between_markers(content: str, generated_links: str) -> str:
     return content[:start_index] + replacement + content[end_index:]
 
 
-def build_nav_line(linked_path: Path | None, base_dir: Path, label: str) -> str | None:
+def build_nav_line(linked_path: Path | None, source_dir: Path, label: str) -> str | None:
     if linked_path is None:
         return None
 
-    relative_path = markdown_relative_path(base_dir, linked_path)
+    relative_path = markdown_relative_path(source_dir, linked_path)
     title = linked_path.stem
     return f"[{label}{title}]({relative_path})"
 
@@ -103,12 +103,12 @@ def update_chapter_navigation(
 
     top_nav = build_nav_line(
         previous_path,
-        base_dir,
+        chapter_path.parent,
         "← 上一章：",
     )
     bottom_nav = build_nav_line(
         next_path,
-        base_dir,
+        chapter_path.parent,
         "下一章：",
     )
 
