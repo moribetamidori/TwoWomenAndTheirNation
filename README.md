@@ -17,7 +17,6 @@ by 冯晨夏
 - [08-选课2016](./manuscript/chapters/08-选课2016.md)
 - [09-冉冉升起的学神2016](./manuscript/chapters/09-冉冉升起的学神2016.md)
 - [10-“政治动物”冯晨夏2016](./manuscript/chapters/10-“政治动物”冯晨夏2016.md)
-- [100-第十三章2029](./manuscript/chapters/100-第十三章2029.md)
 - [11-“女权先锋”张凌歌2016](./manuscript/chapters/11-“女权先锋”张凌歌2016.md)
 - [12-茫然2016](./manuscript/chapters/12-茫然2016.md)
 - [13-有时候绝路也是人生一条路2016](./manuscript/chapters/13-有时候绝路也是人生一条路2016.md)
@@ -107,4 +106,10 @@ by 冯晨夏
 - [97-第十章2029](./manuscript/chapters/97-第十章2029.md)
 - [98-第十一章2029](./manuscript/chapters/98-第十一章2029.md)
 - [99-第十二章2029](./manuscript/chapters/99-第十二章2029.md)
+- [100-第十三章2029](./manuscript/chapters/100-第十三章2029.md)
+- [101-第十四章2030](./manuscript/chapters/101-第十四章2030.md)
+- [102-第十五章2032](./manuscript/chapters/102-第十五章2032.md)
+- [103-第十六章2032](./manuscript/chapters/103-第十六章2032.md)
+- [104-第十七章2032](./manuscript/chapters/104-第十七章2032.md)
+- [105-第十八章2032](./manuscript/chapters/105-第十八章2032.md)
 <!-- chapter-links:end -->
