@@ -11,11 +11,13 @@ from pathlib import Path
 
 START_MARKER = "<!-- chapter-links:start -->"
 END_MARKER = "<!-- chapter-links:end -->"
-TOP_NAV_START = "<!-- chapter-nav-top:start -->"
-TOP_NAV_END = "<!-- chapter-nav-top:end -->"
-BOTTOM_NAV_START = "<!-- chapter-nav-bottom:start -->"
-BOTTOM_NAV_END = "<!-- chapter-nav-bottom:end -->"
 CHAPTER_NUMBER_RE = re.compile(r"^(\d+)-")
+TOP_NAV_LINE_RE = re.compile(
+    r"^(?:<!-- chapter-nav-top:start -->)?\[\u2190 上一章：.+\]\(.+\)(?:<!-- chapter-nav-top:end -->)?$"
+)
+BOTTOM_NAV_LINE_RE = re.compile(
+    r"^(?:<!-- chapter-nav-bottom:start -->)?\[下一章：.+\]\(.+\)(?:<!-- chapter-nav-bottom:end -->)?$"
+)
 
 
 def get_chapter_files(chapters_dir: Path) -> list[Path]:
@@ -60,26 +62,33 @@ def replace_between_markers(content: str, generated_links: str) -> str:
     return content[:start_index] + replacement + content[end_index:]
 
 
-def remove_inline_nav(content: str, start_marker: str, end_marker: str) -> str:
-    pattern = re.compile(
-        rf"(?m)^.*{re.escape(start_marker)}.*{re.escape(end_marker)}\s*\n?"
-    )
-    return pattern.sub("", content)
-
-
-def build_nav_line(
-    linked_path: Path | None,
-    base_dir: Path,
-    start_marker: str,
-    end_marker: str,
-    label: str,
-) -> str | None:
+def build_nav_line(linked_path: Path | None, base_dir: Path, label: str) -> str | None:
     if linked_path is None:
         return None
 
     relative_path = markdown_relative_path(base_dir, linked_path)
     title = linked_path.stem
-    return f"{start_marker}[{label}{title}]({relative_path}){end_marker}"
+    return f"[{label}{title}]({relative_path})"
+
+
+def strip_chapter_nav_lines(content: str) -> str:
+    lines = content.splitlines()
+
+    while lines and not lines[0].strip():
+        lines.pop(0)
+    if lines and TOP_NAV_LINE_RE.fullmatch(lines[0]):
+        lines.pop(0)
+        while lines and not lines[0].strip():
+            lines.pop(0)
+
+    while lines and not lines[-1].strip():
+        lines.pop()
+    if lines and BOTTOM_NAV_LINE_RE.fullmatch(lines[-1]):
+        lines.pop()
+        while lines and not lines[-1].strip():
+            lines.pop()
+
+    return "\n".join(lines)
 
 
 def update_chapter_navigation(
@@ -89,22 +98,17 @@ def update_chapter_navigation(
     base_dir: Path,
 ) -> None:
     content = chapter_path.read_text(encoding="utf-8")
-    content = remove_inline_nav(content, TOP_NAV_START, TOP_NAV_END)
-    content = remove_inline_nav(content, BOTTOM_NAV_START, BOTTOM_NAV_END)
+    content = strip_chapter_nav_lines(content)
     content = content.strip("\n")
 
     top_nav = build_nav_line(
         previous_path,
         base_dir,
-        TOP_NAV_START,
-        TOP_NAV_END,
         "← 上一章：",
     )
     bottom_nav = build_nav_line(
         next_path,
         base_dir,
-        BOTTOM_NAV_START,
-        BOTTOM_NAV_END,
         "下一章：",
     )
 
