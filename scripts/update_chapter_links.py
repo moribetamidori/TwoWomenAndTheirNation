@@ -68,32 +68,41 @@ def remove_inline_nav(content: str, start_marker: str, end_marker: str) -> str:
 
 
 def build_nav_line(
-    chapter_path: Path, linked_path: Path | None, start_marker: str, end_marker: str, label: str
+    linked_path: Path | None,
+    base_dir: Path,
+    start_marker: str,
+    end_marker: str,
+    label: str,
 ) -> str | None:
     if linked_path is None:
         return None
 
-    relative_path = markdown_relative_path(chapter_path.parent, linked_path)
+    relative_path = markdown_relative_path(base_dir, linked_path)
     title = linked_path.stem
     return f"{start_marker}[{label}{title}]({relative_path}){end_marker}"
 
 
-def update_chapter_navigation(chapter_path: Path, previous_path: Path | None, next_path: Path | None) -> None:
+def update_chapter_navigation(
+    chapter_path: Path,
+    previous_path: Path | None,
+    next_path: Path | None,
+    base_dir: Path,
+) -> None:
     content = chapter_path.read_text(encoding="utf-8")
     content = remove_inline_nav(content, TOP_NAV_START, TOP_NAV_END)
     content = remove_inline_nav(content, BOTTOM_NAV_START, BOTTOM_NAV_END)
     content = content.strip("\n")
 
     top_nav = build_nav_line(
-        chapter_path,
         previous_path,
+        base_dir,
         TOP_NAV_START,
         TOP_NAV_END,
         "← 上一章：",
     )
     bottom_nav = build_nav_line(
-        chapter_path,
         next_path,
+        base_dir,
         BOTTOM_NAV_START,
         BOTTOM_NAV_END,
         "下一章：",
@@ -107,11 +116,11 @@ def update_chapter_navigation(chapter_path: Path, previous_path: Path | None, ne
     chapter_path.write_text(f"{content}\n", encoding="utf-8")
 
 
-def update_all_chapter_navigation(chapter_files: list[Path]) -> None:
+def update_all_chapter_navigation(chapter_files: list[Path], base_dir: Path) -> None:
     for index, chapter_path in enumerate(chapter_files):
         previous_path = chapter_files[index - 1] if index > 0 else None
         next_path = chapter_files[index + 1] if index + 1 < len(chapter_files) else None
-        update_chapter_navigation(chapter_path, previous_path, next_path)
+        update_chapter_navigation(chapter_path, previous_path, next_path, base_dir)
 
 
 def main() -> int:
@@ -161,7 +170,7 @@ def main() -> int:
     print(f"Updated {target_path.relative_to(repo_root)}")
 
     if args.update_chapter_navs:
-        update_all_chapter_navigation(chapter_files)
+        update_all_chapter_navigation(chapter_files, repo_root)
         print(
             f"Updated chapter navigation in {len(chapter_files)} files under "
             f"{chapters_dir.relative_to(repo_root)}"
